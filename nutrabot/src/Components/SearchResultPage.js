@@ -1,22 +1,46 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Product from "./Product";
+import Recipe from "./Recipe";
+import uuid from "react-uuid"
 
-export default function SearchResult({ searchedProducts, addtoMymeals }) {
-  const [productResults, setProductResults] = useState([]);
-
-  useEffect(() => {
-    console.log("Inside the useEffect function");
-    setProductResults(searchedProducts);
-  }, [searchedProducts]);
-
+export default function SearchResult({ searchedProducts, searchedRecipes, addtoMymeals }) {
   return (
     <div>
-      <p>search results</p>
+<section>
+  <table>
+    <thead>
+      <tr>
+        <th>Recommended Recipes</th>
+  
+      </tr>
+    </thead>
+<tbody>
+  {searchedRecipes.map((recipe) => {
+    return (<Recipe key={uuid()} name={recipe.recipe.label} recipeCalories={recipe.recipe.calories} image={recipe.recipe.image} url={recipe.recipe.url} />)
+  })}
+</tbody>
+  </table>
+</section>
 
-      {searchedProducts.map((product) => {
+<br />
+    <section>
+      <table>
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Calory Count</th>
+            <th>Protein</th>
+            <th>Carbs</th>
+            <th>Fat</th>
+            <th>Button</th>
+          </tr>
+        </thead>
+        <tbody>
+          {searchedProducts.map((product) => {
         return (
           <Product
-            key={product.food.foodId}
+            key={uuid()}
             name={product.food.label}
             image={product.food.image}
             caloryCount={product.food.nutrients.ENERC_KCAL}
@@ -27,6 +51,9 @@ export default function SearchResult({ searchedProducts, addtoMymeals }) {
           />
         );
       })}
+        </tbody>
+      </table>
+    </section>
     </div>
   );
 }

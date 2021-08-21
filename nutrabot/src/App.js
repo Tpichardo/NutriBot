@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 import "./App.css";
 import Navbar from "./Components/Navbar";
 import SearchBar from "./Components/SearchBar";
@@ -9,22 +9,22 @@ import Resources from "./Components/Resources";
 import SearchResultPage from "./Components/SearchResultPage";
 import functions from "./Components/util/edamamAPI";
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      input: "",
-      searchedProducts: [],
-      redirect: false,
-      apiError: false,
-      invalidInput: false,
-    };
-  }
+class App extends Component {
+  state = {
+    input: "",
+    searchedProducts: [],
+    searchedRecipes: [],
+    apiError: false,
+    invalidInput: false,
+  };
 
   clearSearch = () => {
     this.setState({
-      searchedProducts: "",
       input: "",
+      searchedProducts: [],
+      searchedRecipes: [],
+      apiError: false,
+      invalidInput: false,
     });
   };
 
@@ -38,24 +38,18 @@ export default class App extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     const { input } = this.state;
-    const pathname = window.location.pathname;
-
-    if (pathname !== "/searchresults" && input) {
-      this.setState({
-        redirect: true,
-      });
-    }
 
     if (input) {
       try {
         const searchedProducts = await functions.getProduct(input);
+        const searchedRecipes = await functions.getRecipe(input)
         this.setState({
           input: "",
           invalidInput: false,
           apiError: false,
           searchedProducts,
+          searchedRecipes
         });
-        console.log(searchedProducts[0].food.nutrients.CHOCDF);
       } catch (e) {
         console.log(`API error ${e}`);
         this.setState({
@@ -67,12 +61,15 @@ export default class App extends Component {
         invalidInput: true,
       });
     }
+    this.props.history.push("/searchresults");
   };
 
-  addtoMymeals = () => {};
+  addtoMymeals = (e) => {
+    console.log(e.target);
+  };
 
   render() {
-    const { input, redirect, searchedProducts, invalidInput } = this.state;
+    const { input, searchedProducts, searchedRecipes, invalidInput } = this.state;
     return (
       <div>
         <Navbar clearSearch={this.clearSearch} />
@@ -82,25 +79,29 @@ export default class App extends Component {
           handleSubmit={this.handleSubmit}
         />
         {invalidInput && "Please enter valid input"}
+
         <Switch>
-          {redirect && <Redirect exact to={"/searchresults"} />}
-          <Route exact path="/" render={(props) => <HomePage />}></Route>
-          <Route path="/mymeals" render={(props) => <UserPage />}></Route>
-          <Route path="/resources">
-            <Resources />{" "}
+          <Route exact path={"/"}>
+            <HomePage />
           </Route>
-          <Route
-            to="/searchresults"
-            render={(props) => (
-              <SearchResultPage
-                {...props}
-                searchedProducts={searchedProducts}
-                addtoMymeals={this.addtoMymeals}
-              />
-            )}
-          ></Route>{" "}
+          <Route path="/mymeals">
+            <UserPage addtoMymeals={this.addtoMymeals} />
+          </Route>
+          <Route path="/resources">
+            <Resources />
+          </Route>
+
+          <Route path="/searchresults">
+            <SearchResultPage
+              searchedProducts={searchedProducts}
+              searchedRecipes={searchedRecipes}
+              addtoMymeals={this.addtoMymeals}
+            />
+          </Route>
         </Switch>
       </div>
     );
   }
 }
+
+export default withRouter(App);
