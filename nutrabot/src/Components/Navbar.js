@@ -6,14 +6,15 @@ import resourcesIcon from "../Assets/resourcesicon.png"
 import mymealsIcon from "../Assets/mymealsicon.png"
 
 
-export default function Navbar({clearSearch}) {
+export default function Navbar({ clearSearch }) {
     return (
-       <nav>
-<Link to="/">
-    <img src={homeIcon} alt="home" onClick={clearSearch}/>
-</Link>
-<Link to="/resources"> <img src={resourcesIcon} alt="resources" onClick={clearSearch} /></Link>
-<Link to="/mymeals"> <img src={mymealsIcon} alt="my meals" onClick={clearSearch}/></Link>
-       </nav>
+        <nav>
+            NutraBot
+            <Link to="/">
+                <img src={homeIcon} alt="home" onClick={clearSearch} />
+            </Link>
+            <Link to="/resources"> <img src={resourcesIcon} alt="resources" onClick={clearSearch} /></Link>
+            <Link to="/mymeals"> <img src={mymealsIcon} alt="my meals" onClick={clearSearch} /></Link>
+        </nav>
     )
 }
