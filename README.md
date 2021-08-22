@@ -7,7 +7,7 @@
 
 
 # 👾  🖥️ Pursuit 7.1 Hackathon Group 6! 🖥️   👾
-### Angelina Ebreo
-### Raymond Udeogu 
-### Sarah Weinstein 
-### Talía Pichardo
+### [Angelina Ebreo](https://github.com/angelinaebreo)
+### [Raymond Udeogu](https://github.com/rayu117)
+### [Sarah Weinstein](https://github.com/sbweins)
+### [Talía Pichardo](https://github.com/Tpichardo)
