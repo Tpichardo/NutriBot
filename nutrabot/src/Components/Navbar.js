@@ -4,6 +4,7 @@ import "./Navbar.css";
 import resourcesIcon from "../Assets/resourcesicon.png";
 import mymealsIcon from "../Assets/dinner.svg";
 import nutrabot from "../Assets/nutrabot.png";
+import Searchbar from "./SearchBar";
 
 export default function Navbar({ clearSearch }) {
   return (
@@ -11,14 +12,16 @@ export default function Navbar({ clearSearch }) {
       <Link to="/">
         <img src={nutrabot} alt="home" onClick={clearSearch} />
       </Link>
-      <Link to="/resources">
-        {" "}
-        <img src={resourcesIcon} alt="resources" onClick={clearSearch} />
-      </Link>
+      <Searchbar />
       <Link to="/mymeals">
         {" "}
         <img src={mymealsIcon} alt="my meals" onClick={clearSearch} />
       </Link>
+      <Link to="/resources">
+        {" "}
+        <img src={resourcesIcon} alt="resources" onClick={clearSearch} />
+      </Link>
+      
     </nav>
   );
 }

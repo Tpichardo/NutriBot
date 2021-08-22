@@ -12,5 +12,6 @@ export default function Meal({ meal, removeProduct }) {
         <button onClick={() => removeProduct(meal.id)}>remove</button>
       </td>
     </tr>
+ 
   );
 }
