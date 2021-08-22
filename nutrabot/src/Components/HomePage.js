@@ -2,13 +2,14 @@ import React from "react";
 import { motion } from "framer-motion";
 import balancedDiet from "../Assets/Balanced-diet.jpeg";
 import Check from '../Assets/check-circle.svg'
+import Image from "react-bootstrap/Image"
 import "./HomePage.css";
 
 export default function Homepage() {
   return (
     <div className="Home">
       <div className="img">
-        <img src={balancedDiet} alt="fruits and vegatbles on a table" />
+        <Image className="img-fluid" src={balancedDiet} alt="fruits and vegatbles on a table" />
       </div>
       <div className="text">
         <h1>You are what you eat!</h1>

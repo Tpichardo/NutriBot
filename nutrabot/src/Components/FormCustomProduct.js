@@ -42,6 +42,7 @@ export default function FormCustomProducts() {
     setMealCarbs(e.target.value);
   };
   return (
+    <div>
     <Form onSubmit={createMeal}>
       <Row className="align-items-center">
         <Col sm={3} className="my-1">
@@ -86,5 +87,6 @@ export default function FormCustomProducts() {
         Add{" "}
       </Button>
     </Form>
+    </div>
   );
 }
