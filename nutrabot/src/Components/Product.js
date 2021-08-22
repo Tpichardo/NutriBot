@@ -13,7 +13,8 @@ export default function Product({name, image, caloryCount, protein, carbs, fat, 
                 <td> {protein.toFixed(1)}</td>
                 <td>{carbs.toFixed(1)}</td>
                 <td>{fat.toFixed(1)}</td>
-                <button onClick={addtoMymeals}>Add To My Meals</button>
+                <td>       <button onClick={addtoMymeals}>Add To My Meals</button></td>
+         
             </tr>
 
     )

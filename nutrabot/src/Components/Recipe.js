@@ -9,9 +9,9 @@ export default function Recipe({ name, recipeCalories, image, url }) {
              <br />
              <img src={image} alt={name} className="recipeimg"/>
              <br />
-             Calories: {recipeCalories}
+             Calories: {recipeCalories.toFixed(0)}
              <br />
-             <a href={url} >Fore more info click here</a>
+             <a href={url} >For more info click here</a>
              <br />
          </td>
      </tr>
