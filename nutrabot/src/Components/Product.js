@@ -22,10 +22,10 @@ export default function Product({
         )}
       </td>
       <td>{name}</td>
-      <td>{caloryCount.toFixed(1)}</td>
-      <td> {protein.toFixed(1)}</td>
-      <td>{carbs.toFixed(1)}</td>
-      <td>{fat.toFixed(1)}</td>
+      <td>{caloryCount.toFixed(0)}</td>
+      <td> {protein.toFixed(0)}</td>
+      <td>{carbs.toFixed(0)}</td>
+      <td>{fat.toFixed(0)}</td>
       <td>
         {" "}
         <button onClick={ () => addtoMymeals(name, caloryCount, protein, carbs, fat)}>Add To My Meals</button>

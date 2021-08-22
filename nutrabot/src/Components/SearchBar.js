@@ -9,7 +9,7 @@ function Searchbar(props) {
       <form className="search" onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Search"
+          placeholder="Search for a meal"
           value={input}
           onChange={handleInput}
         ></input>
