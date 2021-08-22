@@ -93,12 +93,14 @@ class App extends Component {
       this.state;
     return (
       <div>
-        <Navbar clearSearch={this.clearSearch} />
-        <SearchBar
+        <Navbar clearSearch={this.clearSearch}   input={input}
+          handleInput={this.handleInput}
+          handleSubmit={this.handleSubmit} />
+        {/* <SearchBar
           input={input}
           handleInput={this.handleInput}
           handleSubmit={this.handleSubmit}
-        />
+        /> */}
         {invalidInput && "Please enter valid input"}
 
         <Switch>

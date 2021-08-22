@@ -7,13 +7,15 @@ import mymealsIcon from "../Assets/dinner.svg";
 import nutrabot from "../Assets/nutrabot.png";
 import Searchbar from "./SearchBar";
 
-export default function Navbar({ clearSearch }) {
+export default function Navbar({ clearSearch, input, handleInput, handleSubmit }) {
   return (
     <nav>
       <Link to="/">
         <img src={nutrabot} alt="home" onClick={clearSearch} />
       </Link>
-      <Searchbar />
+      <Searchbar input={input}
+          handleInput={handleInput}
+          handleSubmit={handleSubmit} />
       <Link to="/mymeals">
         {" "}
         <img src={mymealsIcon} alt="my meals" onClick={clearSearch} />

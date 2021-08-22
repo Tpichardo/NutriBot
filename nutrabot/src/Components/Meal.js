@@ -2,6 +2,7 @@ import React from "react";
 
 export default function Meal({ meal, removeProduct }) {
   return (
+  
     <tr>
       <td> {meal.mealName}</td>
       <td>{meal.mealCalories}</td>
@@ -12,6 +13,7 @@ export default function Meal({ meal, removeProduct }) {
         <button onClick={() => removeProduct(meal.id)}>remove</button>
       </td>
     </tr>
- 
+   
+
   );
 }

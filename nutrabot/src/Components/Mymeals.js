@@ -3,7 +3,7 @@ import firebase from "firebase";
 import Meal from "./Meal.js";
 import uuid from "react-uuid";
 
-export default function Mymeals({mealList, removeProduct}) {
+export default function Mymeals({mealList, removeProduct, consumedCalories}) {
  
 
 
@@ -25,6 +25,7 @@ export default function Mymeals({mealList, removeProduct}) {
           <tbody>
             {mealList &&
               mealList.map((meal) => <Meal key={uuid()} meal={meal} removeProduct={removeProduct} />)}
+          
           </tbody>
         </table>
       </section>

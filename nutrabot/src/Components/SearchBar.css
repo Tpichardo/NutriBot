@@ -5,6 +5,7 @@
   align-items: center;
   margin-top: 10px;
   margin-bottom: 20px;
+
 }
 .search input {
   width: 40%;
@@ -17,3 +18,4 @@
 button img {
   width: 25px;
 }
+
