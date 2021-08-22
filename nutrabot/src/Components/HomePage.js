@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import balancedDiet from "../Assets/Balanced-diet.jpeg";
 import Check from '../Assets/check-circle.svg'
@@ -30,7 +29,7 @@ export default function Homepage() {
               },
             }}
           >
-            <img src={Check} /> Track your calories
+            <img src={Check} alt="checkmark" /> Track your calories
           </motion.li>
           <motion.li
             initial="hidden" animate="visible" variants={{
@@ -42,12 +41,12 @@ export default function Homepage() {
                 scale: 1,
                 opacity: 1,
                 transition: {
-                  delay: .8
+                  delay: 1
                 }
               },
             }}
           >
-            <img src={Check} /> Get a break down of ingredient macros
+            <img src={Check} alt="checkmark" /> Get a break down of ingredient macros
           </motion.li>
           <motion.li
             initial="hidden" animate="visible" variants={{
@@ -59,12 +58,12 @@ export default function Homepage() {
                 scale: 1,
                 opacity: 1,
                 transition: {
-                  delay: 1.2
+                  delay: 1.6
                 }
               },
             }}
           >
-            <img src={Check} /> Try delicious recipes!
+            <img src={Check} alt="checkmark" /> Try delicious recipes!
           </motion.li>
         </ul>
       </div>
