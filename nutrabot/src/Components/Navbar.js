@@ -6,7 +6,7 @@ import resourcesIcon from "../Assets/resources.png";
 import mymealsIcon from "../Assets/dinner.svg";
 import nutrabot from "../Assets/nutrabot.png";
 import Searchbar from "./SearchBar";
-import mymeals from "../Assets/mymealsl.png";
+import mymeals from "../Assets/mymeals.png";
 import links from "../Assets/linksl.png";
 
 export default function NavBar({
