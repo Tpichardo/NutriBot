@@ -42,7 +42,7 @@ export default function Homepage() {
                 scale: 1,
                 opacity: 1,
                 transition: {
-                  delay: .8
+                  delay: 1
                 }
               },
             }}
@@ -59,7 +59,7 @@ export default function Homepage() {
                 scale: 1,
                 opacity: 1,
                 transition: {
-                  delay: 1.2
+                  delay: 1.6
                 }
               },
             }}
