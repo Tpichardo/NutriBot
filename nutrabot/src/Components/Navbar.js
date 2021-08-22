@@ -1,12 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-<<<<<<< HEAD
-import resourcesIcon from "../Assets/resourcesicon.png";
-=======
 import homeIcon from "../Assets/homeicon.png";
 import resourcesIcon from "../Assets/resources.png";
->>>>>>> 165d5c2e97c67fa4ab284facd087a15de5fb4ce9
 import mymealsIcon from "../Assets/dinner.svg";
 import nutrabot from "../Assets/nutrabot.png";
 import Searchbar from "./SearchBar";
