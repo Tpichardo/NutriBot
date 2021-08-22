@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
 import "./App.css";
 import Navbar from "./Components/Navbar";
 import SearchBar from "./Components/SearchBar";
@@ -8,23 +8,25 @@ import UserPage from "./Components/UserPage";
 import Resources from "./Components/Resources";
 import SearchResultPage from "./Components/SearchResultPage";
 import functions from "./Components/util/edamamAPI";
+import firebase from "./Components/util/firebase";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      input: "",
-      searchedProducts: [],
-      redirect: false,
-      apiError: false,
-      invalidInput: false,
-    };
-  }
+class App extends Component {
+  state = {
+    input: "",
+    searchedProducts: [],
+    searchedRecipes: [],
+    apiError: false,
+    invalidInput: false,
+  };
 
   clearSearch = () => {
     this.setState({
-      searchedProducts: "",
       input: "",
+      searchedProducts: [],
+      searchedRecipes: [],
+      apiError: false,
+      invalidInput: false,
     });
   };
 
@@ -38,41 +40,57 @@ export default class App extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     const { input } = this.state;
-    const pathname = window.location.pathname;
-
-    if (pathname !== "/searchresults" && input) {
-      this.setState({
-        redirect: true,
-      });
-    }
 
     if (input) {
       try {
         const searchedProducts = await functions.getProduct(input);
+        const searchedRecipes = await functions.getRecipe(input);
         this.setState({
           input: "",
           invalidInput: false,
           apiError: false,
           searchedProducts,
+          searchedRecipes,
         });
-        console.log(searchedProducts[0].food.nutrients.CHOCDF);
       } catch (e) {
         console.log(`API error ${e}`);
         this.setState({
           apiError: true,
+          input: "",
+          invalidInput: false,
+          searchedProducts: [],
+          searchedRecipes: [],
         });
+        this.clearSearch();
       }
     } else {
       this.setState({
+        input: "",
         invalidInput: true,
+        apiError: false,
+        searchedRecipes: [],
+        searchedProducts: [],
       });
     }
+    this.props.history.push("/searchresults");
   };
 
-  addtoMymeals = () => {};
+  addtoMymeals = (name, caloryCount, protein, carbs, fat) => {
+    const mealRef = firebase.database().ref("Meals");
+    const meal = {
+      mealName: name,
+      mealCalories: caloryCount.toFixed(1),
+      mealFat: fat.toFixed(1),
+      mealCarbs: carbs.toFixed(1),
+      mealProtein: protein.toFixed(1),
+    };
+    mealRef.push(meal);
+    this.props.history.push("/mymeals");
+  };
 
   render() {
-    const { input, redirect, searchedProducts, invalidInput } = this.state;
+    const { input, searchedProducts, searchedRecipes, invalidInput, apiError } =
+      this.state;
     return (
       <div>
         <Navbar clearSearch={this.clearSearch} />
@@ -82,25 +100,30 @@ export default class App extends Component {
           handleSubmit={this.handleSubmit}
         />
         {invalidInput && "Please enter valid input"}
+
         <Switch>
-          {redirect && <Redirect exact to={"/searchresults"} />}
-          <Route exact path="/" render={(props) => <HomePage />}></Route>
-          <Route path="/mymeals" render={(props) => <UserPage />}></Route>
-          <Route path="/resources">
-            <Resources />{" "}
+          <Route exact path={"/"}>
+            <HomePage />
           </Route>
-          <Route
-            to="/searchresults"
-            render={(props) => (
-              <SearchResultPage
-                {...props}
-                searchedProducts={searchedProducts}
-                addtoMymeals={this.addtoMymeals}
-              />
-            )}
-          ></Route>{" "}
+          <Route path="/mymeals">
+            <UserPage addtoMymeals={this.addtoMymeals} />
+          </Route>
+          <Route path="/resources">
+            <Resources />
+          </Route>
+
+          <Route path="/searchresults">
+            <SearchResultPage
+              apiError={apiError}
+              searchedProducts={searchedProducts}
+              searchedRecipes={searchedRecipes}
+              addtoMymeals={this.addtoMymeals}
+            />
+          </Route>
         </Switch>
       </div>
     );
   }
 }
+
+export default withRouter(App);

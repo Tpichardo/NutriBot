@@ -1,5 +1,10 @@
 .progress-bar {
-    height: 5px;
-    background: #983333;
-    margin-top: 20px;
-  }
+  height: 5px;
+  background: #983333;
+  margin-top: 20px;
+
+}
+
+.progresscontainer {
+  border: 1px solid black;
+}
