@@ -6,10 +6,13 @@ export default function ProgressCircle({ dailyCalories, consumedCalories }) {
   const progress = (consumedCalories / dailyCalories) * 100;
 
   return (
-    <motion.div
+    <div className="progresscontainer">
+         <motion.div
       className="progress-bar"
       initial={{ width: 0 }}
       animate={{ width: progress + "%" }}
     ></motion.div>
+    </div>
+ 
   );
 }

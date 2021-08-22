@@ -12,7 +12,7 @@ export default function Homepage() {
       </div>
       <div className="text">
         <h1>You are what you eat!</h1>
-        <p>Being health consious just got easier with NutraBot!</p>
+        <p>Being health conscious just got easier with NutraBot!</p>
         <ul>
           <motion.li
             initial="hidden" animate="visible" variants={{

@@ -1,7 +1,7 @@
-/* body{
-    background-color: #333;
+body {
+    /* background-color: #333;
     margin: 10%;
-    margin-left: 30%;
+    margin-left: 30%; */
 
 }
 
@@ -65,7 +65,7 @@
     animation: loading-1 1.8s linear forwards;
 }
 .progress .progress-value{
-    width: 100%;
+    width: 50%;
     height: 100%;
     font-size: 24px;
     color: rgb(250, 245, 245);
@@ -148,4 +148,4 @@
 }
 @media only screen and (max-width: 990px){
     .progress{ margin-bottom: 20px; }
-} */
+}
