@@ -41,6 +41,8 @@ export default function FormCustomProducts() {
     setMealCarbs(e.target.value);
   };
   return (
+    <div className="customform">
+    <h4>Enter a custom food product</h4>
     <form onSubmit={createMeal}>
       <input
         type="text"
@@ -81,5 +83,6 @@ export default function FormCustomProducts() {
         Add{" "}
       </button>
     </form>
+    </div>
   );
 }

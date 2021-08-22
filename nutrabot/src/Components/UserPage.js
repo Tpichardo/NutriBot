@@ -53,7 +53,7 @@ export default function UserPage() {
     <>
       <div className="mydailycalories">
         <div style={{ width: 200, height: 200 }}>
-          <CircularProgressbar value={progress} text={`${progress}%`} />;
+          <CircularProgressbar value={progress} text={ dailyCalories ? `${progress}%` : `%`} />;
         </div>
         My consumed calories: {consumedCalories.toFixed(2)}
         <br />

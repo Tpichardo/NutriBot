@@ -31,7 +31,7 @@ export default function Resources() {
               <a href="https://www.calculator.net/calorie-calculator.html">
                 Calorie Calculator
               </a>
-              will give you an accurate calculation of your personal daily
+              {" "} will give you an accurate calculation of your personal daily
               calorie intake.
             </section>
           </Col>
