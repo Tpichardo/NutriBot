@@ -9,6 +9,7 @@ import Resources from "./Components/Resources";
 import SearchResultPage from "./Components/SearchResultPage";
 import functions from "./Components/util/edamamAPI";
 import firebase from "./Components/util/firebase";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
   state = {
