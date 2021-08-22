@@ -9,3 +9,8 @@
     margin: 0 auto;
 
 }
+
+.customform input {
+    padding: 10px;
+    margin: 5px;
+}
