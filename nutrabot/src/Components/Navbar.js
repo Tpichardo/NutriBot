@@ -24,7 +24,6 @@ export default function Navbar({ clearSearch, input, handleInput, handleSubmit }
         {" "}
         <img src={resourcesIcon} alt="resources" onClick={clearSearch} />
       </Link>
-      
     </nav>
   );
 }
