@@ -92,15 +92,10 @@ class App extends Component {
       this.state;
     return (
       <div>
-        <Navbar
-          clearSearch={this.clearSearch}
-          input={input}
+        <Navbar clearSearch={this.clearSearch} input={input}
           handleInput={this.handleInput}
           handleSubmit={this.handleSubmit}
-        />
-
-        {invalidInput && "Please enter valid input"}
-
+          invalidInput={invalidInput} />
         <Switch>
           <Route exact path={"/"}>
             <HomePage />
