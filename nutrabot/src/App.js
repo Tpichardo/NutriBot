@@ -2,14 +2,13 @@ import React, { Component } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import "./App.css";
 import Navbar from "./Components/Navbar";
-import SearchBar from "./Components/SearchBar";
 import HomePage from "./Components/HomePage";
 import UserPage from "./Components/UserPage";
 import Resources from "./Components/Resources";
 import SearchResultPage from "./Components/SearchResultPage";
 import functions from "./Components/util/edamamAPI";
 import firebase from "./Components/util/firebase";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends Component {
   state = {
@@ -93,14 +92,13 @@ class App extends Component {
       this.state;
     return (
       <div>
-        <Navbar clearSearch={this.clearSearch}   input={input}
-          handleInput={this.handleInput}
-          handleSubmit={this.handleSubmit} />
-        {/* <SearchBar
+        <Navbar
+          clearSearch={this.clearSearch}
           input={input}
           handleInput={this.handleInput}
           handleSubmit={this.handleSubmit}
-        /> */}
+        />
+
         {invalidInput && "Please enter valid input"}
 
         <Switch>
