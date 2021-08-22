@@ -1,6 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import balancedDiet from "../Assets/Balanced-diet.jpeg";
+import Check from '../Assets/check-circle.svg'
 import "./HomePage.css";
 
 export default function Homepage() {
@@ -11,12 +12,62 @@ export default function Homepage() {
       </div>
       <div className="text">
         <h1>You are what you eat!</h1>
-        <p>
-          Being health consious just got easier. Track your calories, get a
-          break down of ingreditent macros, and get delicious recipes with
-          NutraBot!
-        </p>
+        <p>Being health consious just got easier with NutraBot!</p>
+        <ul>
+          <motion.li
+            initial="hidden" animate="visible" variants={{
+              hidden: {
+                scale: .8,
+                opacity: 0
+              },
+              visible: {
+                scale: 1,
+                opacity: 1,
+                transition: {
+                  delay: .4
+                }
+              },
+            }}
+          >
+            <img src={Check} alt="checkmark" /> Track your calories
+          </motion.li>
+          <motion.li
+            initial="hidden" animate="visible" variants={{
+              hidden: {
+                scale: .8,
+                opacity: 0
+              },
+              visible: {
+                scale: 1,
+                opacity: 1,
+                transition: {
+                  delay: .8
+                }
+              },
+            }}
+          >
+            <img src={Check} alt="checkmark" /> Get a break down of ingredient macros
+          </motion.li>
+          <motion.li
+            initial="hidden" animate="visible" variants={{
+              hidden: {
+                scale: .8,
+                opacity: 0
+              },
+              visible: {
+                scale: 1,
+                opacity: 1,
+                transition: {
+                  delay: 1.2
+                }
+              },
+            }}
+          >
+            <img src={Check} alt="checkmark" /> Try delicious recipes!
+          </motion.li>
+        </ul>
       </div>
+
     </div>
   );
 }

@@ -8,6 +8,7 @@ import UserPage from "./Components/UserPage";
 import Resources from "./Components/Resources";
 import SearchResultPage from "./Components/SearchResultPage";
 import functions from "./Components/util/edamamAPI";
+import firebase from "./Components/util/firebase";
 
 class App extends Component {
   state = {
@@ -73,8 +74,17 @@ class App extends Component {
     this.props.history.push("/searchresults");
   };
 
-  addtoMymeals = (e) => {
-    console.log(e.target);
+  addtoMymeals = (name, caloryCount, protein, carbs, fat) => {
+    const mealRef = firebase.database().ref("Meals");
+    const meal = {
+      mealName: name,
+      mealCalories: caloryCount.toFixed(1),
+      mealFat: fat.toFixed(1),
+      mealCarbs: carbs.toFixed(1),
+      mealProtein: protein.toFixed(1),
+    };
+    mealRef.push(meal);
+    this.props.history.push("/mymeals");
   };
 
   render() {

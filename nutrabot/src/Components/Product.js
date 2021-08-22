@@ -28,7 +28,7 @@ export default function Product({
       <td>{fat.toFixed(1)}</td>
       <td>
         {" "}
-        <button onClick={addtoMymeals}>Add To My Meals</button>
+        <button onClick={ () => addtoMymeals(name, caloryCount, protein, carbs, fat)}>Add To My Meals</button>
       </td>
     </tr>
   );

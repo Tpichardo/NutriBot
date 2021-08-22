@@ -12,7 +12,7 @@ export default function SearchResult({
   return (
     <div>
       {apiError && "API Error"}
-      {searchedRecipes && (
+      {searchedRecipes.length > 0 && (
         <section>
           <table>
             <thead>
@@ -39,7 +39,7 @@ export default function SearchResult({
 
       <br />
 
-      {searchedProducts && (
+      {searchedProducts.length > 0 && (
         <section>
           <table>
             <thead>

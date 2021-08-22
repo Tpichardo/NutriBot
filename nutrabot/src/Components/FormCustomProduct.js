@@ -4,6 +4,9 @@ import firebase from "./util/firebase";
 export default function FormCustomProducts() {
   const [mealName, setMealName] = useState("");
   const [mealCalories, setMealCalories] = useState("");
+  const [mealFat, setMealFat] = useState("");
+  const [mealProtein, setMealProtein] = useState("");
+  const [mealCarbs, setMealCarbs] = useState("");
 
   const createMeal = (e) => {
     e.preventDefault();
@@ -11,6 +14,9 @@ export default function FormCustomProducts() {
     const meal = {
       mealName,
       mealCalories,
+      mealFat, 
+      mealCarbs, 
+      mealProtein
     };
     mealRef.push(meal);
     setMealCalories(0);
@@ -25,6 +31,15 @@ export default function FormCustomProducts() {
     setMealCalories(e.target.value);
   };
 
+  const handleChangeProtein = (e) => {
+    setMealProtein(e.target.value);
+  };
+  const handleChangeFat = (e) => {
+    setMealFat(e.target.value);
+  };
+  const handleChangeCarbs = (e) => {
+    setMealCarbs(e.target.value);
+  };
   return (
     <form onSubmit={createMeal}>
       <input
@@ -40,6 +55,27 @@ export default function FormCustomProducts() {
         value={mealCalories}
         required
         onChange={handleChangeCalory}
+      />
+        <input
+        type="number"
+        placeholder="Enter product protein content"
+        value={mealProtein}
+        required
+        onChange={handleChangeProtein}
+      />
+        <input
+        type="number"
+        placeholder="Enter product carbs content"
+        value={mealCarbs}
+        required
+        onChange={handleChangeCarbs}
+      />
+        <input
+        type="number"
+        placeholder="Enter product fat content"
+        value={mealFat}
+        required
+        onChange={handleChangeFat}
       />
       <button className="button-add" type="submit">
         Add{" "}

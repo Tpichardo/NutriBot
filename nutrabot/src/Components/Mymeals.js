@@ -12,11 +12,17 @@ export default function Mymeals() {
       const meals = snapshot.val();
       const mealList = [];
       for (let id in meals) {
-        mealList.push({ ...meals[id] });
+        mealList.push({id, ...meals[id] });
       }
       setMealList(mealList);
     });
   }, []);
+
+  const removeProduct = (productId) => {
+    const mealRef = firebase.database().ref(`/Meals/${productId}`);
+    mealRef.remove();
+  }
+
 
   return (
     <div>
@@ -27,11 +33,15 @@ export default function Mymeals() {
             <tr>
               <th>Product</th>
               <th>Calories</th>
+              <th>Fat</th>
+              <th>Carbs</th>
+              <th>Protein</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             {mealList &&
-              mealList.map((meal) => <Meal key={uuid()} meal={meal} />)}
+              mealList.map((meal) => <Meal key={uuid()} meal={meal} removeProduct={removeProduct} />)}
           </tbody>
         </table>
       </section>
