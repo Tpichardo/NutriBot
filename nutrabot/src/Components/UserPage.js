@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import firebase from "firebase";
 import FormCustomProduct from "./FormCustomProduct";
-import ProgressCircle from "./ProgressCircle";
 import Mymeals from "./Mymeals";
-import Mydailycalories from "./Mydailycalories";
 import "./UserPage.css";
 
 import { CircularProgressbar } from "react-circular-progressbar";
@@ -42,7 +40,7 @@ export default function UserPage() {
         .reduce((prevVal, curVal) => parseFloat(prevVal) + parseFloat(curVal));
       setConsumedCalories(caloriesArr);
     });
-  }, []);
+  }, [consumedCalories]);
 
   const removeProduct = (productId) => {
     const mealRef = firebase.database().ref(`/Meals/${productId}`);

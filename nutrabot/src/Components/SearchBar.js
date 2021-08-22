@@ -1,5 +1,4 @@
 import React from "react";
-import Search from "../Assets/icon-search.png";
 import { Form, FormControl, Button } from 'react-bootstrap';
 import "./SearchBar.css";
 

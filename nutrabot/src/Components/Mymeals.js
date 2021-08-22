@@ -1,12 +1,8 @@
-import React, { useState, useEffect } from "react";
-import firebase from "firebase";
+import React from "react";
 import Meal from "./Meal.js";
 import uuid from "react-uuid";
 
-export default function Mymeals({mealList, removeProduct, consumedCalories}) {
- 
-
-
+export default function Mymeals({ mealList, removeProduct }) {
   return (
     <div>
       <h1>My Meals</h1>
@@ -25,7 +21,7 @@ export default function Mymeals({mealList, removeProduct, consumedCalories}) {
           <tbody>
             {mealList &&
               mealList.map((meal) => <Meal key={uuid()} meal={meal} removeProduct={removeProduct} />)}
-          
+
           </tbody>
         </table>
       </section>
