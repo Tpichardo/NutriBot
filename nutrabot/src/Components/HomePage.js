@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import balancedDiet from "../Assets/Balanced-diet.jpeg";
+import Check from '../Assets/check-circle.svg'
 import "./HomePage.css";
 
 export default function Homepage() {
@@ -11,8 +12,14 @@ export default function Homepage() {
       </div>
       <div className="text">
         <h1>You are what you eat!</h1>
-        <p>Being health consious just got easier. Track your calories, get a break down of ingreditent macros, and get delicious recipes with NutraBot!</p>
+        <p>Being health consious just got easier with NutraBot!</p>
+        <ul>
+          <li>  <img src={Check} /> Track your calories</li>
+          <li> <img src={Check} /> Get a break down of ingredient macros</li>
+          <li> <img src={Check} /> get delicious recipes!</li>
+        </ul>
       </div>
+
     </div>
   );
 }

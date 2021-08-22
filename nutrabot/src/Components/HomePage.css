@@ -10,10 +10,13 @@ img {
 }
 
 .img {
-  flex-basis: 80%;
+  flex-basis: 60%;
 }
 
 .text {
   font-size: 20px;
-  padding-left: 20px;
+}
+
+ul {
+  list-style: none;
 }
