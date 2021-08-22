@@ -1,9 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export default function Resources() {
-    return (
-        <div>
-            List of resources
-        </div>
-    )
+  return <div>List of resources</div>;
 }

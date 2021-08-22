@@ -11,7 +11,11 @@ export default function Homepage() {
       </div>
       <div className="text">
         <h1>You are what you eat!</h1>
-        <p>Being health consious just got easier. Track your calories, get a break down of ingreditent macros, and get delicious recipes with NutraBot!</p>
+        <p>
+          Being health consious just got easier. Track your calories, get a
+          break down of ingreditent macros, and get delicious recipes with
+          NutraBot!
+        </p>
       </div>
     </div>
   );
