@@ -53,9 +53,9 @@ export default function UserPage() {
         <div style={{ width: 200, height: 200 }}>
           <CircularProgressbar value={progress} text={ dailyCalories ? `${progress}%` : `%`} />;
         </div>
-        My consumed calories: {consumedCalories.toFixed(2)}
+        My consumed calories: {consumedCalories.toFixed(1)}
         <br />
-        My daily calories limit: {parseFloat(dailyCalories).toFixed(2)}
+        My daily calories limit: {parseFloat(dailyCalories).toFixed(1)}
         <div className="mydailycaloriesform">
           <Form onSubmit={handleSubmitCalories}>
             <input

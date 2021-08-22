@@ -42,7 +42,8 @@ export default function FormCustomProducts() {
     setMealCarbs(e.target.value);
   };
   return (
-    <div>
+    <div className="customform">
+      <h4>Enter a custom food product</h4>
     <Form onSubmit={createMeal}>
       <Row className="align-items-center">
         <Col sm={3} className="my-1">
@@ -55,28 +56,28 @@ export default function FormCustomProducts() {
           />
           <input
             type="number"
-            placeholder="Enter product calories"
+            placeholder="Enter calories"
             value={mealCalories}
             required
             onChange={handleChangeCalory}
           />
           <input
             type="number"
-            placeholder="Enter product protein content"
+            placeholder="Enter protein content"
             value={mealProtein}
             required
             onChange={handleChangeProtein}
           />
           <input
             type="number"
-            placeholder="Enter product carbs content"
+            placeholder="Enter carbs content"
             value={mealCarbs}
             required
             onChange={handleChangeCarbs}
           />
           <input
             type="number"
-            placeholder="Enter product fat content"
+            placeholder="Enter fat content"
             value={mealFat}
             required
             onChange={handleChangeFat}
@@ -84,7 +85,7 @@ export default function FormCustomProducts() {
         </Col>
       </Row>
       <Button className="button-add" type="submit">
-        Add{" "}
+        Add to My Meals{" "}
       </Button>
     </Form>
     </div>

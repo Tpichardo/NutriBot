@@ -1,4 +1,11 @@
 .mydailycalories, .mymeals {
-    padding: 15px;
-    justify-content: center;
+    padding: 55px;
+    /* justify-content: center; */
+    margin: 0 auto;
+}
+
+.customform {
+    padding: 35px;
+    margin: 0 auto;
+
 }

@@ -2,6 +2,7 @@ import React from "react";
 import Product from "./Product";
 import Recipe from "./Recipe";
 import uuid from "react-uuid";
+import "./SearchResultPage.css"
 
 export default function SearchResult({
   searchedProducts,
@@ -12,35 +13,9 @@ export default function SearchResult({
   return (
     <div>
       {apiError && "API Error"}
-      {searchedRecipes.length > 0 && (
-        <section>
-          <table>
-            <thead>
-              <tr>
-                <th>Recommended Recipes</th>
-              </tr>
-            </thead>
-            <tbody>
-              {searchedRecipes.map((recipe) => {
-                return (
-                  <Recipe
-                    key={uuid()}
-                    name={recipe.recipe.label}
-                    recipeCalories={recipe.recipe.calories}
-                    image={recipe.recipe.image}
-                    url={recipe.recipe.url}
-                  />
-                );
-              })}
-            </tbody>
-          </table>
-        </section>
-      )}
-
-      <br />
 
       {searchedProducts.length > 0 && (
-        <section>
+        <section className="searchresults">
           <table>
             <thead>
               <tr>
@@ -65,6 +40,31 @@ export default function SearchResult({
                     carbs={product.food.nutrients.CHOCDF}
                     fat={product.food.nutrients.FAT}
                     addtoMymeals={addtoMymeals}
+                  />
+                );
+              })}
+            </tbody>
+          </table>
+        </section>
+      )}
+
+      {searchedRecipes.length > 0 && (
+        <section className="searchresults">
+          <table>
+            <thead>
+              <tr>
+                <th>Recommended Recipes</th>
+              </tr>
+            </thead>
+            <tbody>
+              {searchedRecipes.map((recipe) => {
+                return (
+                  <Recipe
+                    key={uuid()}
+                    name={recipe.recipe.label}
+                    recipeCalories={recipe.recipe.calories}
+                    image={recipe.recipe.image}
+                    url={recipe.recipe.url}
                   />
                 );
               })}
