@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import firebase from "./util/firebase";
+import { Form, Row, Col, Button } from "react-bootstrap";
 
 export default function FormCustomProducts() {
   const [mealName, setMealName] = useState("");
@@ -14,9 +15,9 @@ export default function FormCustomProducts() {
     const meal = {
       mealName,
       mealCalories,
-      mealFat, 
-      mealCarbs, 
-      mealProtein
+      mealFat,
+      mealCarbs,
+      mealProtein,
     };
     mealRef.push(meal);
     setMealCalories(0);
@@ -41,48 +42,51 @@ export default function FormCustomProducts() {
     setMealCarbs(e.target.value);
   };
   return (
-    <div className="customform">
-    <h4>Enter a custom food product</h4>
-    <form onSubmit={createMeal}>
-      <input
-        type="text"
-        placeholder="Enter product name"
-        value={mealName}
-        required
-        onChange={handleChangeMeal}
-      />
-      <input
-        type="number"
-        placeholder="Enter product calories"
-        value={mealCalories}
-        required
-        onChange={handleChangeCalory}
-      />
-        <input
-        type="number"
-        placeholder="Enter product protein content"
-        value={mealProtein}
-        required
-        onChange={handleChangeProtein}
-      />
-        <input
-        type="number"
-        placeholder="Enter product carbs content"
-        value={mealCarbs}
-        required
-        onChange={handleChangeCarbs}
-      />
-        <input
-        type="number"
-        placeholder="Enter product fat content"
-        value={mealFat}
-        required
-        onChange={handleChangeFat}
-      />
-      <button className="button-add" type="submit">
+    <div>
+    <Form onSubmit={createMeal}>
+      <Row className="align-items-center">
+        <Col sm={3} className="my-1">
+          <input
+            type="text"
+            placeholder="Enter product name"
+            value={mealName}
+            required
+            onChange={handleChangeMeal}
+          />
+          <input
+            type="number"
+            placeholder="Enter product calories"
+            value={mealCalories}
+            required
+            onChange={handleChangeCalory}
+          />
+          <input
+            type="number"
+            placeholder="Enter product protein content"
+            value={mealProtein}
+            required
+            onChange={handleChangeProtein}
+          />
+          <input
+            type="number"
+            placeholder="Enter product carbs content"
+            value={mealCarbs}
+            required
+            onChange={handleChangeCarbs}
+          />
+          <input
+            type="number"
+            placeholder="Enter product fat content"
+            value={mealFat}
+            required
+            onChange={handleChangeFat}
+          />
+        </Col>
+      </Row>
+      <Button className="button-add" type="submit">
         Add{" "}
-      </button>
-    </form>
+      </Button>
+    </Form>
     </div>
   );
 }

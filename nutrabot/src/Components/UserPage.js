@@ -9,6 +9,8 @@ import "./UserPage.css";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
+import { Form } from "react-bootstrap";
+
 export default function UserPage() {
   const [dailyCalories, setDailyCalories] = useState(0);
   const [consumedCalories, setConsumedCalories] = useState(0);
@@ -38,8 +40,6 @@ export default function UserPage() {
       const caloriesArr = mealList
         .map((meal) => meal.mealCalories)
         .reduce((prevVal, curVal) => parseFloat(prevVal) + parseFloat(curVal));
-      console.log(caloriesArr);
-      console.log(consumedCalories);
       setConsumedCalories(caloriesArr);
     });
   }, []);
@@ -57,17 +57,18 @@ export default function UserPage() {
         </div>
         My consumed calories: {consumedCalories.toFixed(2)}
         <br />
-        My daily calories: {parseFloat(dailyCalories).toFixed(2)}
+        My daily calories limit: {parseFloat(dailyCalories).toFixed(2)}
         <div className="mydailycaloriesform">
-          <form onSubmit={handleSubmitCalories}>
+          <Form onSubmit={handleSubmitCalories}>
             <input
               type="number"
               name="mydailycalories"
               value={userInput}
               onChange={handleChangeCalories}
-            />
+              placeholder="Enter Caloric Limit"
+            />{" "}
             <input type="submit" value="Submit" />
-          </form>
+          </Form>
         </div>
       </div>
       <div className="mymeals">
