@@ -3,10 +3,8 @@ import firebase from "firebase";
 import FormCustomProduct from "./FormCustomProduct";
 import Mymeals from "./Mymeals";
 import "./UserPage.css";
-
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-
 import { Form } from "react-bootstrap";
 
 export default function UserPage() {
@@ -51,11 +49,17 @@ export default function UserPage() {
     <>
       <div className="mydailycalories">
         <div style={{ width: 200, height: 200 }}>
-          <CircularProgressbar value={progress} text={ dailyCalories ? `${progress}%` : `%`} />;
+          <CircularProgressbar
+            value={progress}
+            text={dailyCalories ? `${progress}%` : `%`}
+          />
         </div>
-        My consumed calories: {consumedCalories.toFixed(1)}
-        <br />
-        My daily calories limit: {parseFloat(dailyCalories).toFixed(1)}
+        <div className="calories">
+          <p> My consumed calories: {consumedCalories.toFixed(1)}</p>
+
+          <p>My daily calories limit: {parseFloat(dailyCalories).toFixed(1)}</p>
+        </div>
+
         <div className="mydailycaloriesform">
           <Form onSubmit={handleSubmitCalories}>
             <input

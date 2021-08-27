@@ -20,8 +20,11 @@ export default function FormCustomProducts() {
       mealProtein,
     };
     mealRef.push(meal);
-    setMealCalories(0);
     setMealName("");
+    setMealCalories("");
+    setMealFat("")
+    setMealProtein("")
+    setMealCarbs("")
   };
 
   const handleChangeMeal = (e) => {
@@ -56,7 +59,7 @@ export default function FormCustomProducts() {
           />
           <input
             type="number"
-            placeholder="Enter calories"
+            placeholder="Enter product calories"
             value={mealCalories}
             required
             onChange={handleChangeCalory}
