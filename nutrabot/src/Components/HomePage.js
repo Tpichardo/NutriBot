@@ -8,12 +8,11 @@ import "./HomePage.css";
 export default function Homepage() {
   return (
     <div className="Home">
-      <div className="img">
+      <div className="homeImg">
         <Image className="img-fluid" src={balancedDiet} alt="fruits and vegatbles on a table" />
       </div>
-      <div className="text">
-        <h1>You are what you eat!</h1>
-        <p>Being health conscious just got easier with NutraBot!</p>
+      <div className="homeContent">
+        <p>Being health conscious just got easier with NutriBot!</p>
         <ul>
           <motion.li
             initial="hidden" animate="visible" variants={{
