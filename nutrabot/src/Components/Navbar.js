@@ -2,12 +2,9 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Nav, Navbar, Container } from "react-bootstrap";
 import "./Navbar.css";
-import resourcesIcon from "../Assets/resources.png";
-import mymealsIcon from "../Assets/dinner.svg";
-import nutrabot from "../Assets/nutrabot.png";
+import NutriLogo from "../Assets/Nutribot.png";
 import Searchbar from "./SearchBar";
-import mymeals from "../Assets/mymealsl.png";
-import resources from "../Assets/resourcesl.png";
+
 
 export default function NavBar({
   clearSearch,
@@ -21,7 +18,7 @@ export default function NavBar({
       <Container>
         <Nav.Link as={NavLink} to="/">
           <Navbar.Brand>
-            <img src={nutrabot} alt="home" onClick={clearSearch} />
+            <img src={NutriLogo} alt="home" onClick={clearSearch} />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
         </Nav.Link>
@@ -33,18 +30,16 @@ export default function NavBar({
           >
             <Nav.Item>
               <Nav.Link as={NavLink} to="/resources">
-                <img
-                  src={resourcesIcon}
-                  alt="resources"
-                  onClick={clearSearch}
-                />
-                <img src={resources} alt="resources" onClick={clearSearch} />
+                <div onClick={clearSearch}>
+                  Resources
+                </div>
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link as={NavLink} to="/mymeals">
-                <img src={mymealsIcon} alt="my meals" onClick={clearSearch} />
-                <img src={mymeals} alt="my meals" onClick={clearSearch} />
+                <div onClick={clearSearch}>
+                  My Meals
+                </div>
               </Nav.Link>
             </Nav.Item>
           </Nav>
