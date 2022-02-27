@@ -1,22 +1,24 @@
 .Home {
   display: flex;
   align-items: center;
-  justify-content: center;
+  margin-top: 3em;
 }
 
-img {
-  max-width: 100%;
-  margin-left: 10px;
+.homeImg {
+  max-width: 55rem;
+  padding-left: 6em;
 }
 
-.img {
-  flex-basis: 60%;
-}
-
-.text {
+.homeContent {
   font-size: 20px;
+  padding-left: 3em;
 }
 
 ul {
   list-style: none;
+}
+
+.homeImg,
+.homeContent {
+  flex: 0 1 50%;
 }
