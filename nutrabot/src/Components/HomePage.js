@@ -12,7 +12,7 @@ export default function Homepage() {
         <Image className="img-fluid" src={balancedDiet} alt="fruits and vegatbles on a table" />
       </div>
       <div className="homeContent">
-        <p>Being health conscious just got easier with NutriBot!</p>
+        <p>Being health conscious just got easier with Nutribot!</p>
         <ul>
           <motion.li
             initial="hidden" animate="visible" variants={{
