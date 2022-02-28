@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 2em;
+  padding: 2em;
 }
 
 .macros {
@@ -12,4 +12,5 @@
 
 .resource {
   text-decoration: none;
+  color: rgb(13, 109, 253);
 }

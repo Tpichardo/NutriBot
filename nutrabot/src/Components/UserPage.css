@@ -1,26 +1,25 @@
-.mydailycalories, .mymeals {
-    padding: 55px;
-    /* justify-content: center; */
-    margin: 0 auto;
+.mydailycalories,
+.mymeals {
+  padding: 55px;
+  display: flex;
+  flex-direction: column;
 }
 
 .customform {
-    padding: 35px;
-    margin: 0 auto;
-
+  padding: 35px;
+  margin: 0 auto;
 }
 
 .customform input {
-    padding: 10px;
-    margin: 5px;
+  padding: 10px;
+  margin: 5px;
 }
 
 .customform button {
-    padding: 10px;
-    margin: 5px;
+  padding: 10px;
+  margin: 5px;
 }
 
 .calories {
-    padding: 15px;
-   
+  padding: 15px;
 }

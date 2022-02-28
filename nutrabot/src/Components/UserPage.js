@@ -31,12 +31,14 @@ export default function UserPage() {
       for (let id in meals) {
         mealList.push({ id, ...meals[id] });
       }
+
       setMealList(mealList);
-      console.log(mealList);
-      const caloriesArr = mealList
-        .map((meal) => meal.mealCalories)
-        .reduce((prevVal, curVal) => parseFloat(prevVal) + parseFloat(curVal));
-      setConsumedCalories(caloriesArr);
+      if (mealList.length > 0) {
+        const caloriesArr = mealList
+          .map((meal) => meal.mealCalories)
+          .reduce((prevVal, curVal) => parseFloat(prevVal) + parseFloat(curVal));
+        setConsumedCalories(caloriesArr);
+      }
     });
   }, [consumedCalories]);
 
@@ -48,16 +50,17 @@ export default function UserPage() {
   return (
     <>
       <div className="mydailycalories">
+        <h2>Enter your caloric goal for the day & see how far along you are!</h2>
         <div style={{ width: 200, height: 200 }}>
           <CircularProgressbar
             value={progress}
-            text={dailyCalories ? `${progress}%` : `%`}
+            text={dailyCalories ? `${progress}%` : `0%`}
           />
         </div>
         <div className="calories">
           <p> My consumed calories: {consumedCalories.toFixed(1)}</p>
 
-          <p>My daily calories limit: {parseFloat(dailyCalories).toFixed(1)}</p>
+          <p>My caloric goal: {parseFloat(dailyCalories).toFixed(1)}</p>
         </div>
 
         <div className="mydailycaloriesform">
@@ -67,7 +70,7 @@ export default function UserPage() {
               name="mydailycalories"
               value={userInput}
               onChange={handleChangeCalories}
-              placeholder="Enter Caloric Limit"
+              placeholder="Enter Caloric Goal"
             />{" "}
             <input type="submit" value="Submit" />
           </Form>
