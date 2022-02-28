@@ -18,7 +18,7 @@ export default function NavBar({
       <Container>
         <Nav.Link as={NavLink} to="/">
           <Navbar.Brand>
-            <img src={NutriLogo} alt="home" onClick={clearSearch} />
+            <img src={NutriLogo} alt="home" className='nutriLogo' onClick={clearSearch} />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
         </Nav.Link>
