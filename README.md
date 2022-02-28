@@ -1,6 +1,6 @@
-## Welcome to the NutriBot App!
+## Welcome to the Nutribot App!
 
-[NutraBot Live version](https://nutribot.netlify.app)
+[Nutribot Live version](https://nutribot.netlify.app)
 
 ### Nutrabot was created for anyone who is interested learning more about the food they consume!
 ### Nutrabot gives users the ability to meet their health goals by using our app to receive nutritional information and recipe recommendations.
