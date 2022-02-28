@@ -1,0 +1,15 @@
+.Healthy-Resources {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2em;
+}
+
+.macros {
+  width: 100vh;
+  padding: 3em;
+}
+
+.resource {
+  text-decoration: none;
+}
