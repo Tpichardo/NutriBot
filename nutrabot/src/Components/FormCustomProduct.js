@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import firebase from "./util/firebase";
 import { Form, Row, Col, Button } from "react-bootstrap";
-import './FormCustomProduct.css'
+
 
 export default function FormCustomProducts() {
   const [mealName, setMealName] = useState("");
