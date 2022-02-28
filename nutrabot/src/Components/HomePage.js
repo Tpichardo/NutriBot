@@ -9,7 +9,7 @@ export default function Homepage() {
   return (
     <div className="Home">
       <div className="homeImg">
-        <Image className="img-fluid" src={balancedDiet} alt="fruits and vegatbles on a table" />
+        <Image className="img-fluid" src={balancedDiet} alt="A table with fruits, vegetables, nuts, seeds, eggs, and salmon" />
       </div>
       <div className="homeContent">
         <p>Being health conscious just got easier with Nutribot!</p>
