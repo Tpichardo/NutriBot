@@ -23,9 +23,9 @@ export default function Product({
       </td>
       <td>{name}</td>
       <td>{caloryCount}</td>
-      <td> {protein}</td>
-      <td>{carbs}</td>
-      <td>{fat}</td>
+      <td> {protein}{'g'}</td>
+      <td>{carbs}{'g'}</td>
+      <td>{fat}{'g'}</td>
       <td>
         {" "}
         <button onClick={() => addtoMymeals(name, caloryCount, protein, carbs, fat)}>Add To My Meals</button>
