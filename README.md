@@ -1,4 +1,4 @@
-## Welcome to the NutraBot App!
+## Welcome to the NutriBot App!
 
 [NutraBot Live version](https://nutribot.netlify.app)
 
