@@ -22,13 +22,13 @@ export default function Product({
         )}
       </td>
       <td>{name}</td>
-      <td>{caloryCount.toFixed(0)}</td>
-      <td> {protein.toFixed(0)}</td>
-      <td>{carbs.toFixed(0)}</td>
-      <td>{fat.toFixed(0)}</td>
+      <td>{caloryCount}</td>
+      <td> {protein}</td>
+      <td>{carbs}</td>
+      <td>{fat}</td>
       <td>
         {" "}
-        <button onClick={ () => addtoMymeals(name, caloryCount, protein, carbs, fat)}>Add To My Meals</button>
+        <button onClick={() => addtoMymeals(name, caloryCount, protein, carbs, fat)}>Add To My Meals</button>
       </td>
     </tr>
   );
